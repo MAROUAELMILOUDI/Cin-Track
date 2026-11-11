@@ -1,4 +1,5 @@
 import { initialiser } from "./api.js";
+import { handelFiltrer } from "./recherche-filtrer.js";
 //affichage des cards:
 const container = document.getElementById("cards-container");
 const modal = document.getElementById("modal");
@@ -49,7 +50,7 @@ closeBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
 });
 
-modal.addEventListener("click", e => {
+window.addEventListener("click", e => {
     if (e.target === modal) {
         modal.classList.add("hidden");
     }
@@ -58,5 +59,13 @@ modal.addEventListener("click", e => {
 async function demarrer() {
     movies = await initialiser();
     afficherCards(movies);
+    const movieInput = document.getElementById("movies");
+    const statutSelect = document.getElementById("statut");
+    if(movieInput){
+        movieInput.addEventListener("input", () => handelFiltrer(movies, afficherCards));
+    } 
+    if(statutSelect){
+        statutSelect.addEventListener("change", () => handelFiltrer(movies, afficherCards))
+    } 
 }
 demarrer()
