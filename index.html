@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <script src="./js/cards.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
                 <img src="./img/logo.svg" alt="Logo de CinéTrack" class="h-10 w-auto">
                 <div class="flex items-center gap-3">
                     <div class="search relative flex items-center">
-                        <input type="text" id="search" placeholder="Search movies or series..." class="bg-gray-950 border border-gray-700 w-full text-sm sm:text-base p-2.5 pr-10 rounded-lg outline-none shadow text-white">
+                        <input type="text" id="search" placeholder="Search movies or series..." class="bg-gray-950 focus:border-4 border-x-red-600 w-full text-sm sm:text-base p-2.5 pr-10 rounded-lg outline-none shadow text-white transition-all">
                         <span class="absolute right-3 flex items-center pointer-events-none text-gray-500">
                             <i class="fa fa-search"></i>
                         </span>
@@ -35,8 +35,8 @@
             </p>
         </div>
         <div class="justify-self-end relative max-w-6xl px-6 pt-24">
-            <select name="statut" id="statut" class="bg-gray-900 w-36 text-sm sm:text-base p-2.5 rounded-lg outline-none shadow">
-                <option value="tout">Tout</option>
+            <select name="statut" id="statut" class="bg-gray-900 w-36 text-sm sm:text-base p-2.5 focus:border-4 border-red-600 rounded-lg outline-none shadow transition-all">
+                <option value="all">All</option>
                 <option value="movies">Movies</option>
                 <option value="series">Series</option>
             </select>
