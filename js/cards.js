@@ -16,7 +16,7 @@ async function afficherCards(data) {
     }
     data.forEach(movie => {
        const card = document.createElement("div");
-        card.className = "bg-gray-900 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition duration-300 shadow-lg";
+        card.className = "bg-gray-900 rounded-xl overflow-hidden cursor-pointer hover:scale-105  transition duration-300 shadow-lg";
         card.innerHTML = `
             <img src="${movie.image}" alt="${movie.title}" class="w-full h-64 object-cover">
             <div class="p-3">
@@ -59,4 +59,4 @@ async function demarrer() {
     movies = await initialiser();
     afficherCards(movies);
 }
-demarrer()
+demarrer();
