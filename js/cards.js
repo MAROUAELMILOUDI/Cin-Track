@@ -14,13 +14,23 @@ async function chargeData() {
         return [];
     }
 }
-function sauvegarder(data) {
-    localStorage.setItem("movies", JSON.stringify(data));
+function sauvegarder(movies) {
+    localStorage.setItem("movies", JSON.stringify(movies));
 }
 
-function chargerDepuisStorage() {
-    const data = localStorage.getItem("movies");
-    return data ? JSON.parse(data) : [];
+async function initialiser() {
+    const donnees = localStorage.getItem("movies");
+    if(donnees && donnees !== "undefined" && donnees !== null){
+        try{
+            return movies = JSON.parse(donnees);
+        }catch{
+            console.error("Corrupt local storage data, resetting...");
+        }
+    }
+    const data = await chargeData();
+    if(data.length > 0){
+        sauvegarder(data);
+    }
+    return data;
 }
-
 chargeData();
