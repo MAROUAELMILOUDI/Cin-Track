@@ -1,6 +1,6 @@
 import { initialiser } from "./api.js";
 import { handelFiltrer } from "./recherche-filtrer.js";
-import { handelFvv } from "./favoris.js";
+import { handelFvv, isFav, updateHeart } from "./favoris.js";
 //affichage des cards:
 const container = document.getElementById("cards-container");
 const modal = document.getElementById("modal");
@@ -31,10 +31,11 @@ async function afficherCards(data) {
                 </p>
             </div>
         `;
+        const fvvBtn = card.querySelector(".favoris");
+        updateHeart(fvvBtn.querySelector("i"), isFav(movie));
+        fvvBtn.addEventListener("click", (e) => handelFvv(e, movie));
         card.addEventListener("click", () => afficherModal(movie));
         container.appendChild(card);
-        const fvvBtn = card.querySelector(".favoris");
-        fvvBtn.addEventListener("click", (e) => handelFvv(e, movie));
     });
 }
 
