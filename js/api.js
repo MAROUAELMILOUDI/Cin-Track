@@ -1,7 +1,7 @@
-const URL = "https://raw.githubusercontent.com/ouchad97/cinetrack-api/main/cinetrack-data.json";
+const API_URL = "https://raw.githubusercontent.com/ouchad97/cinetrack-api/main/cinetrack-data.json";
 async function chargeData() {
     try {
-        const response = await fetch(URL);
+        const response = await fetch(API_URL);
         if (!response.ok) {
             throw new Error("Link introuvable!");
         }

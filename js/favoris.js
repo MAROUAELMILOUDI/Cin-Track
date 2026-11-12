@@ -33,3 +33,4 @@ export function handelFvv(e, movie){
     const icon = e.currentTarget.querySelector("i");
     updateHeart(icon, fvv.includes(movie.id));
 };
+
