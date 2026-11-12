@@ -17,9 +17,12 @@ async function afficherCards(data) {
     }
     data.forEach(movie => {
        const card = document.createElement("div");
-        card.className = "bg-gray-900 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition duration-300 shadow-lg";
+        card.className = "relative bg-gray-900 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition duration-300 shadow-lg shadow-red-700";
         card.innerHTML = `
             <img src="${movie.image}" alt="${movie.title}" class="w-full h-64 object-cover">
+            <button class="favoris absolute right-2 top-2 rounded-full bg-black/30 p-2 text-white hover:text-red-600">
+                <i class="fa-regular fa-heart"></i>
+            </button>
             <div class="p-3">
                 <h3 class="font-bold text-sm">${movie.title}</h3>
                 <p class="text-gray-400 text-xs mt-2">

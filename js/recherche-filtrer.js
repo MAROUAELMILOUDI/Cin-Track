@@ -21,3 +21,4 @@ export function handelFiltrer(movies, afficherCards){
     });
     afficherCards(filtreMovies);
 }
+
